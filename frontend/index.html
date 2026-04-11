@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rig Monitoring Dashboard</title>
+        <link rel="stylesheet" href="/frontend/style.css">  
+        <link rel="icon" type="image/x-icon" href="/frontend/favicon.ico">
+    </head>
+
+    <body>
+
+        <header>
+            ⚙️ NURAB Real-Time Rig Monitoring Dashboard
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h3>Depth</h3>
+                <div id="depth" class="value">0</div>
+            </div>
+
+            <div class="card">
+                <h3>RPM</h3>
+                <div id="rpm" class="value">0</div>
+            </div>
+
+            <div class="card">
+                <h3>Hookload</h3>
+                <div id="hookload" class="value">0</div>
+            </div>
+
+            <div class="card">
+                <h3>Pressure</h3>
+                <div id="pressure" class="value">0</div>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+        <script src="/frontend/script.js"></script>
+
+    </body>
+</html> 
