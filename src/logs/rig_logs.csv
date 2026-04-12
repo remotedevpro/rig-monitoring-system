@@ -31,3 +31,11 @@ timestamp,depth,rpm,hookload,pressure,status,message
 2026-04-12T14:32:47.548Z,5000,150,100,3888,SUCCESS,Data saved
 2026-04-12T14:33:08.629Z,5000,150,100,33300,SUCCESS,Data saved
 2026-04-12T14:33:30.184Z,5000,150,100,3777,SUCCESS,Data saved
+2026-04-12T14:41:10.686Z,5500,170,140,4200,SUCCESS,Data saved
+2026-04-12T15:01:08.198Z,5000,140,90,3200,SUCCESS,Data saved
+2026-04-12T16:21:48.971Z,5000,140,90,3200,SUCCESS,Data saved
+2026-04-12T16:26:08.797Z,5800,120,49,8000,SUCCESS,Data saved
+2026-04-12T16:54:45.889Z,,,,,ERROR,Operation `rigdatas.insertOne()` buffering timed out after 10000ms
+2026-04-12T16:59:41.653Z,,,,,ERROR,Operation `rigdatas.insertOne()` buffering timed out after 10000ms
+2026-04-12T16:59:54.986Z,,,,,ERROR,Operation `rigdatas.insertOne()` buffering timed out after 10000ms
+2026-04-12T17:02:25.548Z,5900,120,50,7899,SUCCESS,Data saved
