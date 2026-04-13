@@ -39,3 +39,5 @@ timestamp,depth,rpm,hookload,pressure,status,message
 2026-04-12T16:59:41.653Z,,,,,ERROR,Operation `rigdatas.insertOne()` buffering timed out after 10000ms
 2026-04-12T16:59:54.986Z,,,,,ERROR,Operation `rigdatas.insertOne()` buffering timed out after 10000ms
 2026-04-12T17:02:25.548Z,5900,120,50,7899,SUCCESS,Data saved
+2026-04-12T17:19:17.669Z,5900,120,50,7899,SUCCESS,Data saved
+2026-04-12T17:22:03.938Z,5900,120,50,5555,SUCCESS,Data saved
