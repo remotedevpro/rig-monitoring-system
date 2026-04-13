@@ -29,10 +29,37 @@ app.get('/', (req, res) => {
     res.send('NURAB Systems Rig Monitoring System API is running...');
 });
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.error(err));
+// MongoDB connection - ADD DB CONNECTION MONITORING
+mongoose.connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 5000
+});
+
+const db = mongoose.connection;
+
+db.on('connected', () => {
+    console.log('✅ MongoDB connected');
+});
+
+db.on('error', (err) => {
+    console.log('❌ MongoDB error:', err.message);
+});
+
+db.on('disconnected', () => {
+    console.log('⚠️ MongoDB disconnected! Trying to reconnect...');
+    reconnectDB();
+});
+
+// MongoDB connection - ADD AUTO-RECONNECT FUNCTION
+// Connection lost → wait 5s → reconnect → continue
+const reconnectDB = () => {
+    setTimeout(() => {
+        mongoose.connect(process.env.MONGO_URI)
+            .then(() => console.log("🔁 Reconnected to MongoDB"))
+            .catch(err => console.log("❌ Reconnect failed:", err.message));
+    }, 5000); // retry after 5 seconds
+};
+
+
 
 // Routes
 app.use('/api/rig-data', rigRoutes);

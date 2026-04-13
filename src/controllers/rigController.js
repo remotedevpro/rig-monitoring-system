@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const RigData = require('../models/rigModel');
 const logToCSV = require('../utils/logger');
 
@@ -54,6 +55,22 @@ const addRigData = async (req, res) => {
             hookload,
             pressure
         });
+
+        // ENSURE DB CONNECTION BEFORE SAVING
+        // Check if the database is connected before attempting to save the new reading. If not, log the error and return a 503 Service Unavailable response.
+        // This prevents the server from crashing due to unhandled exceptions when the database is down and provides a clear message to the client about the issue.
+        // Check MongoDB connection status
+        // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
+        // If not connected, skip saving and return 503
+        // if (RigData.db.readyState !== 1) { .....here ,mongoose.connection == RigData.db.connection
+
+        if (mongoose.connection.readyState !== 1) {
+            console.log("⚠️ DB not connected. Skipping save.");
+
+            return res.status(503).json({
+                message: "Database unavailable. Try again shortly."
+            });
+        }
 
         // ✅ Save to MongoDB
         await newReading.save();
