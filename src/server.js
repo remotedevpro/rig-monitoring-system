@@ -1,8 +1,11 @@
 require('dotenv').config();
 
+
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const logger = require('./utils/systemLogger');
+const rigController = require('./controllers/rigController');
 const http = require('http');
 const { Server } = require('socket.io');
 
@@ -35,17 +38,25 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 const db = mongoose.connection;
-
 db.on('connected', () => {
     console.log('✅ MongoDB connected');
+    logger.info("MongoDB connected");
+
+    const io = app.get('io');
+
+    // 🔥 Flush buffered data after DB is ready
+    rigController.flushBuffer(io);
 });
+
 
 db.on('error', (err) => {
     console.log('❌ MongoDB error:', err.message);
+    logger.error(`MongoDB connection error: ${err.message}`);
 });
 
 db.on('disconnected', () => {
     console.log('⚠️ MongoDB disconnected! Trying to reconnect...');
+    logger.warn("MongoDB disconnected! Trying to reconnect...");
     reconnectDB();
 });
 
