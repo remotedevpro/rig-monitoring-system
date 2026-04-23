@@ -8,5 +8,5 @@ Content-Type: application/json
     "rpm": 150,
     "hookload": 100,
     "pressure": 8855
-    
+
 }
