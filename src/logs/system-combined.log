@@ -138,3 +138,10 @@
 2026-04-14T20:15:45.788Z [INFO]: MongoDB connected
 2026-04-14T20:15:45.832Z [WARN]: MongoDB disconnected! Trying to reconnect...
 2026-04-14T20:15:47.714Z [INFO]: MongoDB connected
+2026-04-14T20:22:27.790Z [WARN]: MongoDB disconnected! Trying to reconnect...
+2026-04-14T20:22:50.239Z [INFO]: MongoDB connected
+2026-04-23T16:32:01.532Z [INFO]: MongoDB connected
+2026-04-23T16:44:11.522Z [INFO]: ✅ Data saved to DB
+2026-04-23T17:06:02.514Z [INFO]: ✅ Data saved to DB
+2026-04-23T17:07:13.182Z [INFO]: ✅ Data saved to DB
+2026-04-23T17:08:39.584Z [INFO]: ✅ Data saved to DB

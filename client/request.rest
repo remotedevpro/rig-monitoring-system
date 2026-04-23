@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/rig-data
+Content-Type: application/json
+
+
+
+{
+    "depth": 5000,
+    "rpm": 150,
+    "hookload": 100,
+    "pressure": 8855
+    
+}
